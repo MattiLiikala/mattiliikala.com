@@ -1,0 +1,77 @@
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  /* Mobile default */
+  height: 800px;
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 80px 24px;
+}
+
+.greeting {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  color: #121212;
+}
+
+.name {
+  font-family: 'Parkinsans', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 56px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  color: #121212;
+  margin-top: 37px;
+}
+
+/* Tablet */
+@media (min-width: 800px) and (max-width: 1279px) {
+  .hero {
+    height: 546px;
+  }
+  .content {
+    justify-content: center;
+    padding: 80px;
+  }
+  .name {
+    white-space: normal;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1280px) {
+  .hero {
+    height: 700px;
+  }
+  .content {
+    justify-content: center;
+    padding: 80px;
+  }
+  .name {
+    white-space: normal;
+  }
+}

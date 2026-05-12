@@ -15,6 +15,15 @@ export default function Footer() {
             <span className={styles.icon} style={{ maskImage: 'url(/assets/linkedin.svg)', WebkitMaskImage: 'url(/assets/linkedin.svg)' }} />
           </a>
           <a
+            href="https://github.com/MattiLiikala"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.iconLink}
+            aria-label="GitHub profile"
+          >
+            <span className={styles.icon} style={{ maskImage: 'url(/assets/github.svg)', WebkitMaskImage: 'url(/assets/github.svg)' }} />
+          </a>
+          <a
             href="mailto:matti.m.liikala@gmail.com"
             className={styles.iconLink}
             aria-label="Email"

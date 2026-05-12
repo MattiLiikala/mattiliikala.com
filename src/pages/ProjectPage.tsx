@@ -14,9 +14,11 @@ const fadeIn = (x: number) => ({
 function SectionContent({ section }: { section: ProjectSection }) {
   const paragraphs = section.body.split('\n\n')
 
+  const imageClass = section.imageUncontained ? styles.sectionImageUncontained : styles.sectionImageBlock
+
   const imageBlock = section.image && section.imageWidth && section.imageHeight && (
     <div
-      className={styles.sectionImageBlock}
+      className={imageClass}
       style={{
         width: `${(section.imageWidth / 1280) * 100}%`,
         aspectRatio: `${section.imageWidth} / ${section.imageHeight}`,
@@ -58,7 +60,7 @@ function SectionContent({ section }: { section: ProjectSection }) {
 
   const animatedImage = (
     <motion.div
-      className={styles.sectionImageBlock}
+      className={imageClass}
       style={{
         width: `${(section.imageWidth! / 1280) * 100}%`,
         aspectRatio: `${section.imageWidth} / ${section.imageHeight}`,

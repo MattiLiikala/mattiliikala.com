@@ -135,6 +135,16 @@
   object-fit: cover;
 }
 
+.sectionImageUncontained {
+  flex-shrink: 0;
+}
+
+.sectionImageUncontained img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Shared text styles */
 .sectionHeading {
   font-family: 'Parkinsans', sans-serif;

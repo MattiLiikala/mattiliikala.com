@@ -5,6 +5,7 @@ export interface ProjectSection {
   imageLayout?: 'right' | 'left'
   imageWidth?: number  // Figma px at 1280 content width
   imageHeight?: number
+  imageUncontained?: boolean  // renders image without rounded container/shadow
 }
 
 export interface ProjectData {
@@ -25,10 +26,10 @@ export interface ProjectData {
 export const projects: ProjectData[] = [
   {
     slug: 'mehilainen-design-system',
-    title: 'Mehiläinen Design system',
+    title: 'Mehiläinen Design System',
     description:
       'This multi themed design system is used by both professional users and customers of Mehiläinen. It provides both Design & Developer utilities and complete styleguide to be used.',
-    role: 'My role in this project was design system lead. Since the team was small I was also the designer and contributed in development tasks.',
+    role: 'My role in this project was Design System Lead. Since the team was small I was also the designer and contributed in development tasks.',
     year: '2023–2026',
     cardImage: '/assets/project-mehi-ds.png',
     imageStyle: 'contain',
@@ -56,7 +57,7 @@ export const projects: ProjectData[] = [
       },
       {
         heading: 'Semantics',
-        body: 'At some point it was clear that the semantic tokenization was required. The tokenisation was then created workshopping with designers and developers from the whole company.\n\nThe semantic tokenisation was kept light weight, but followed a robust and scalable naming logic.\n\nThe end result was three level tokenization:\n\nCore tokens — The primitive values (primary.500, alert.200...)\nSemantic tokens — Tokens that tell the purpose of the token (color-text-action-hover, color-icon-brand...)\nComponent tokens — every component is fully tokenised, to help distribute the components to different environments (tech stacks or devices)',
+        body: 'At some point it was clear that the semantic tokenisation was required. The tokenisation was then created workshopping with designers and developers from the whole company.\n\nThe semantic tokenisation was kept light weight, but followed a robust and scalable naming logic.\n\nThe end result was three level tokenization:\n\nCore tokens — The primitive values (primary.500, alert.200...)\nSemantic tokens — Tokens that tell the purpose of the token (color-text-action-hover, color-icon-brand...)\nComponent tokens — every component is fully tokenised, to help distribute the components to different environments (tech stacks or devices)',
         image: '/assets/project-mds-semantics.png',
         imageLayout: 'right',
         imageWidth: 487,
@@ -101,10 +102,11 @@ export const projects: ProjectData[] = [
         imageLayout: 'right',
         imageWidth: 690,
         imageHeight: 538,
+        imageUncontained: true,
       },
       {
         heading: 'User paths validated',
-        body: 'Different user profiles and personas were created and validated. Analytics data was used to find different user behaviour. We also analysed different pain points in the old model to avoid making old mistakes again.\n\nWith new paths and features user testing, feedback and A/B testing was used in validation.',
+        body: 'Different user profiles and personas were created and validated. Analytics data was used to find different user behaviour. We also analysed different pain points in the old model to avoid repeating old mistakes.\n\nWhen new user paths and features were ready, we used user testing, feedback and A/B testing in to validate and iterate new models.',
         image: '/assets/project-booking-user-paths.png',
         imageLayout: 'left',
         imageWidth: 406,

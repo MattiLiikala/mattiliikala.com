@@ -1,15 +1,28 @@
+/* overflow:hidden intentionally NOT on .about — it breaks position:sticky */
 .about {
+  position: relative;
   width: 100%;
+  min-height: 115vh;
   background-color: #232323;
+}
+
+/* sticky on all breakpoints — overflow:hidden here clips the slide-in animation
+   without breaking the sticky behaviour (only ancestor overflow matters for sticky) */
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
 }
 
 .text {
-  /* Mobile */
-  padding: 80px 24px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 
 .line {
@@ -31,15 +44,27 @@
   font-style: normal;
   font-size: 20px;
   letter-spacing: 0;
-  /* original line-height: 0 — creates a small gap */
   line-height: 0;
   display: block;
   margin-bottom: 0;
 }
 
-/* Tablet & Desktop */
+/* Curtain lives in its own clipping wrapper */
+.curtainWrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.curtain {
+  position: absolute;
+  inset: 0;
+  background-color: #f2f2f2;
+}
+
 @media (min-width: 800px) {
-  .text {
-    padding: 120px 80px;
+  .sticky {
+    padding: 0 80px;
   }
 }

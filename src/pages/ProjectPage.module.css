@@ -1,0 +1,242 @@
+/* ── Page shell ─────────────────────────────────────────── */
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.hero {
+  width: 100%;
+  background-color: #f0ebd1;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.backLink {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.7;
+  white-space: nowrap;
+  color: #000;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.title {
+  font-family: 'Parkinsans', sans-serif;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: normal;
+  color: #121212;
+  -webkit-text-fill-color: #121212;
+  width: 100%;
+}
+
+.heroText {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #000;
+  width: 100%;
+}
+
+.timestamp {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+}
+
+.year {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #000;
+}
+
+.externalLink {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #000;
+  text-decoration: none;
+}
+
+.externalLink:hover {
+  text-decoration: underline;
+}
+
+/* ── Full-width hero image ──────────────────────────────── */
+.heroImage {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* ── Content sections ───────────────────────────────────── */
+
+/* Text-only */
+.sectionText {
+  width: 100%;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+/* Side-by-side with image */
+.sectionRow {
+  width: 100%;
+  padding: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 80px;
+}
+
+.sectionTextBlock {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.sectionImageBlock {
+  flex-shrink: 0;
+  border-radius: 32px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.sectionImageBlock img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Shared text styles */
+.sectionHeading {
+  font-family: 'Parkinsans', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: normal;
+  color: #121212;
+  -webkit-text-fill-color: #121212;
+  width: 100%;
+}
+
+.sectionBody {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* When body is inside an image section it shouldn't max-width constrain */
+.sectionTextBlock .sectionBody {
+  max-width: none;
+}
+
+.paragraph {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #000;
+  display: block;
+}
+
+.paragraph + .paragraph {
+  margin-top: 1em;
+}
+
+/* ── Bottom back link ───────────────────────────────────── */
+.bottomNav {
+  width: 100%;
+  padding: 40px 80px 80px;
+}
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 799px) {
+  .hero {
+    padding: 48px 24px;
+    gap: 8px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .sectionText {
+    padding: 48px 24px;
+  }
+
+  .sectionRow {
+    padding: 48px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  /* On mobile, image comes after text regardless of imageLayout */
+  .imageFirst {
+    flex-direction: column-reverse;
+  }
+
+  .sectionImageBlock {
+    width: 100% !important;
+    aspect-ratio: unset !important;
+    border-radius: 16px;
+  }
+
+  .sectionImageBlock img {
+    height: auto;
+    max-height: 320px;
+    object-fit: cover;
+  }
+
+  .bottomNav {
+    padding: 32px 24px 48px;
+  }
+}
+
+/* ── Tablet ─────────────────────────────────────────────── */
+@media (min-width: 800px) and (max-width: 1279px) {
+  .hero {
+    padding: 80px;
+  }
+
+  .sectionText {
+    padding: 80px;
+  }
+
+  .sectionRow {
+    padding: 80px;
+    gap: 48px;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+}

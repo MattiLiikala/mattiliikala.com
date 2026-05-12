@@ -1,4 +1,3 @@
-import type React from 'react'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -11,26 +10,16 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.iconLink}
-            aria-label="linkedin profile"
+            aria-label="LinkedIn profile"
           >
-            <img
-              src="/assets/linkedin.svg"
-              alt="linkedin logo"
-              className={styles.icon}
-              style={{ '--fill-0': 'rgba(242, 242, 242, 1)' } as React.CSSProperties}
-            />
+            <span className={styles.icon} style={{ maskImage: 'url(/assets/linkedin.svg)', WebkitMaskImage: 'url(/assets/linkedin.svg)' }} />
           </a>
           <a
             href="mailto:matti.m.liikala@gmail.com"
             className={styles.iconLink}
-            aria-label="email"
+            aria-label="Email"
           >
-            <img
-              src="/assets/email.svg"
-              alt="email"
-              className={styles.iconEmail}
-              style={{ '--fill-0': 'rgba(242, 242, 242, 1)' } as React.CSSProperties}
-            />
+            <span className={styles.iconEmail} style={{ maskImage: 'url(/assets/email.svg)', WebkitMaskImage: 'url(/assets/email.svg)' }} />
           </a>
         </div>
         <p className={styles.copyright}>Matti Liikala 2026</p>

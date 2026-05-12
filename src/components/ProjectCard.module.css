@@ -1,0 +1,80 @@
+.card {
+  position: relative;
+  aspect-ratio: 412 / 316;
+  border-radius: 32px;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.card:hover {
+  box-shadow: none;
+  transition: 0.3s ease-in; 
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+  display: block;
+}
+
+.overlay {
+  flex: 1 0 0;
+  min-height: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.52) 61.058%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
+.card:hover .overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.23) 0%,
+    rgba(0, 0, 0, 0.6) 61.058%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  transition: 0.3s ease-in; 
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 32px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.title {
+  flex: 1 0 0;
+  min-width: 1px;
+  font-family: 'Parkinsans', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 18px;
+  letter-spacing: 0;
+  text-align: left;
+  line-height: normal;
+  word-break: break-word;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}

@@ -29,13 +29,36 @@
 }
 
 .icon {
+  display: block;
   width: 64px;
   height: 64px;
+  background-color: #f2f2f2;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  transition: background-color 0.3s ease-in;
 }
 
 .iconEmail {
+  display: block;
   width: 64px;
   height: 49px;
+  background-color: #f2f2f2;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  transition: background-color 0.3s ease-in;
+}
+
+.iconLink:hover .icon,
+.iconLink:hover .iconEmail {
+  background-color: #f0ebd1;
 }
 
 .copyright {

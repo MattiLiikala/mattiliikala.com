@@ -6,7 +6,7 @@ import { projects } from '../data/projects'
 export default function Projects() {
   return (
     <section className={styles.projects}>
-      <div className={styles.sticky}>
+      <div className={styles.content}>
         <p className={styles.heading}>Projects</p>
         <div className={styles.grid}>
           {projects.map((project, index) => (

@@ -1,11 +1,12 @@
 .projects {
-  position: relative;
   width: 100%;
   background-color: #f2f2f2;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Mobile: plain layout, no sticky */
-.sticky {
+.content {
   padding: 80px 24px;
   display: flex;
   flex-direction: column;
@@ -33,44 +34,27 @@
   gap: 16px;
 }
 
-/* Tablet: 2-column grid, sticky */
+/* Tablet: 2-column grid */
 @media (min-width: 800px) and (max-width: 1279px) {
-  .projects {
-    min-height: 133vh;
-  }
-
-  .sticky {
-    position: sticky;
-    top: 0;
+  .content {
     padding: 80px;
-    justify-content: flex-start;
   }
 
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(2, fit-content(100%));
     column-gap: 16px;
     row-gap: 16px;
   }
 }
 
-/* Desktop: 4-column grid, sticky */
+/* Desktop: 4-column grid */
 @media (min-width: 1280px) {
-  .projects {
-    min-height: 133vh;
-  }
-
-  .sticky {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    padding: 80px;
-    justify-content: flex-start;
+  .content {
+    padding: 320px 80px;
   }
 
   .grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: repeat(1, fit-content(100%));
     column-gap: 16px;
     row-gap: 16px;
   }

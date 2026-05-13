@@ -1,19 +1,10 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import styles from './About.module.css'
 
 export default function About() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['end end', 'end start'],
-  })
-  // percentage so the curtain is always exactly one section-height below at start
-  const curtainY = useTransform(scrollYProgress, (v) => `${(1 - Math.pow(v, 0.55)) * 100}%`)
-
   return (
-    <section ref={sectionRef} className={styles.about}>
-      <div className={styles.sticky}>
+    <section className={styles.about}>
+      <div className={styles.content}>
         <div className={styles.text}>
           <motion.p
             className={styles.line}
@@ -47,10 +38,6 @@ export default function About() {
         </div>
       </div>
 
-      {/* Curtain is in its own overflow:hidden wrapper so sticky above is unaffected */}
-      <div className={styles.curtainWrapper}>
-        <motion.div className={styles.curtain} style={{ y: curtainY }} />
-      </div>
     </section>
   )
 }

@@ -1,21 +1,12 @@
-/* overflow:hidden intentionally NOT on .about — it breaks position:sticky */
 .about {
-  position: relative;
   width: 100%;
-  min-height: 115vh;
   background-color: #232323;
 }
 
-/* sticky on all breakpoints — overflow:hidden here clips the slide-in animation
-   without breaking the sticky behaviour (only ancestor overflow matters for sticky) */
-.sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
+.content {
   display: flex;
   align-items: center;
-  padding: 0 24px;
+  padding: 80px 24px;
 }
 
 .text {
@@ -49,22 +40,8 @@
   margin-bottom: 0;
 }
 
-/* Curtain lives in its own clipping wrapper */
-.curtainWrapper {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.curtain {
-  position: absolute;
-  inset: 0;
-  background-color: #f2f2f2;
-}
-
 @media (min-width: 800px) {
-  .sticky {
-    padding: 0 80px;
+  .content {
+    padding: 320px 80px 400px 80px;
   }
 }

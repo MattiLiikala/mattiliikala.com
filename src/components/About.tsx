@@ -12,7 +12,7 @@ const BORDER_BLOCKS = [
   { w: 8,  h: 8,  left:  20, btm:  -18, rot:  -32, drift:  35 },
   { w: 13, h: 13, left:  22, btm:  -9, rot:  14, drift:  30 },
   { w: 10, h: 10, left:  43, btm:  -3, rot: -13, drift: -42 },
-  { w: 8,  h: 8,  left:  46, btm:  -20, rot:  12, drift:  35 },
+  { w: 8,  h: 8,  left:  46, btm:  -18, rot:  12, drift:  35 },
   { w: 13, h: 13, left:  57, btm:  -5, rot:  -7, drift: -30 },
   { w: 10, h: 10, left:  64, btm: -12, rot:  11, drift:  32 },
   { w: 12, h: 12, left:  71, btm:  -7, rot:  -8, drift: -28 },

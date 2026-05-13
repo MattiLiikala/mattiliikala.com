@@ -1,4 +1,6 @@
 .about {
+  position: relative;
+  z-index: 1;
   width: 100%;
   background-color: #232323;
 }
@@ -38,6 +40,21 @@
   line-height: 0;
   display: block;
   margin-bottom: 0;
+}
+
+.blockBorder {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.borderBlock {
+  position: absolute;
+  background-color: #232323;
+  border-radius: 12px;
+  transform-origin: bottom center;
 }
 
 @media (min-width: 800px) {

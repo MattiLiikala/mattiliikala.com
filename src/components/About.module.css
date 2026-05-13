@@ -3,12 +3,13 @@
   z-index: 1;
   width: 100%;
   background-color: #232323;
+  overflow-x: clip;
 }
 
 .content {
   display: flex;
   align-items: center;
-  padding: 80px 24px;
+  padding: 160px 24px 240px 24px;
 }
 
 .text {

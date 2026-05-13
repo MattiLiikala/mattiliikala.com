@@ -7,7 +7,7 @@
 }
 
 .content {
-  padding: 80px 24px;
+  padding: 160px 24px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -37,7 +37,7 @@
 /* Tablet: 2-column grid */
 @media (min-width: 800px) and (max-width: 1279px) {
   .content {
-    padding: 80px;
+    padding: 240px 80px;
   }
 
   .grid {

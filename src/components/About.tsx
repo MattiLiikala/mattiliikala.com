@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useMemo } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import styles from './About.module.css'
 
@@ -21,6 +21,18 @@ const BORDER_BLOCKS = [
   { w: 13, h: 13, left:  92, btm:  -4, rot:  10, drift:  33 },
   { w: 12, h: 12, left:  99, btm:  -6, rot:  -9, drift: -27 },
   { w: 10, h: 10, left: 106, btm:  -3, rot:   7, drift:  30 },
+]
+
+const MOBILE_BORDER_BLOCKS = [
+  { w: 24, h: 24, left: -10, btm:  -5, rot: -15, drift: -36 },
+  { w: 22, h: 22, left:   2, btm: -16, rot: -18, drift:  33 },
+  { w: 26, h: 26, left:  30, btm:  -7, rot: -12, drift: -30 },
+  { w: 12, h: 12, left:  30, btm: -20, rot: -42, drift: -30 },
+  { w: 22, h: 22, left:  38, btm: -15, rot:  46, drift:  39 },
+  { w: 24, h: 24, left:  56, btm:  -3, rot:  -9, drift: -33 },
+  { w: 22, h: 22, left:  72, btm: -13, rot:  14, drift:  30 },
+  { w: 26, h: 26, left:  86, btm:  -8, rot: -11, drift: -36 },
+  { w: 22, h: 22, left: 100, btm: -18, rot:   5, drift:  27 },
 ]
 
 const LAND_OFFSETS = [0, 0.025, 0.01, 0.03, 0.005, 0.025, 0.01, 0.03, 0.005]
@@ -70,6 +82,10 @@ function BorderBlock({
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null)
+  const blocks = useMemo(
+    () => (window.innerWidth < 800 ? MOBILE_BORDER_BLOCKS : BORDER_BLOCKS),
+    []
+  )
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
@@ -112,7 +128,7 @@ export default function About() {
       </div>
 
       <div className={styles.blockBorder} aria-hidden="true">
-        {BORDER_BLOCKS.map((b, i) => (
+        {blocks.map((b, i) => (
           <BorderBlock key={i} b={b} index={i} scrollYProgress={scrollYProgress} />
         ))}
       </div>

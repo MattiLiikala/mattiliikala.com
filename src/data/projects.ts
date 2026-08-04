@@ -255,7 +255,7 @@ export const ownProjects: ProjectData[] = [
       },
       {
         heading: 'Learnings',
-        body: 'AI: \n\nDuring this project I learned alot about good prompting, how to set restrictions and rules for agents. I also learned that the code review can be overwhelming and it is important to split tasks to small chuncks, It is too easy to end up creating massive commits.\n\nAI design tools: \n\n I tested the Claude design for the first time. I believe it will mature to be a good tool for prototyping. It is also important to start with a good plan and research. It is important to also leave time for the "slow work" cause sometimes human brain needs a pause and pen & paper will remain my best friends for those tasks. I will continue researching these tools and find the balance within the two.',
+        body: 'AI: \n\nDuring this project I learned alot about good prompting, how to set restrictions and rules for agents. I also learned that the code review can be overwhelming and it is important to split tasks to small chuncks, It is too easy to end up creating massive commits.\n\nAI design tools: \n\n I tested the Claude design for the first time. I believe it will mature to be a good tool for prototyping. It is also important to start with a good plan and research. What I also learned is to leave time for the "slow work" cause sometimes human brain needs a pause and pen & paper will remain my best friends for those tasks. I will continue researching these tools and find the balance between the two.',
       },
     ],
   },

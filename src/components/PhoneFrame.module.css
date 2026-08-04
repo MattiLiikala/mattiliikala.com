@@ -1,0 +1,89 @@
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  background: #1b1b1d;
+  border-radius: 13% / 6%;
+  box-sizing: border-box;
+  box-shadow:
+    0 0 0 1.5px rgba(255, 255, 255, 0.08) inset,
+    0px 16px 32px 0px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+}
+
+/* Pixel puts both buttons on the right edge: power above the volume rocker. */
+.frame::before,
+.frame::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  width: 2px;
+  background: #1b1b1d;
+  border-radius: 0 2px 2px 0;
+}
+
+/* power button */
+.frame::before {
+  top: 16%;
+  height: 6%;
+}
+
+/* volume rocker */
+.frame::after {
+  top: 25%;
+  height: 12%;
+}
+
+/* Absolutely positioned (rather than padded) so the inset percentages
+   resolve against the frame itself, not the flex row it sits in.
+   top/bottom insets are scaled by the frame's aspect ratio (9/19.5) so
+   the gap reads as the same width as the left/right gap, not taller. */
+.screen {
+  position: absolute;
+  inset: 0.6% 1.3%;
+  border-radius: 11% / 5%;
+  overflow: hidden;
+  background: #000;
+}
+
+.screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  background: repeating-linear-gradient(
+    135deg,
+    #1c1c1c,
+    #1c1c1c 10px,
+    #181818 10px,
+    #181818 20px
+  );
+}
+
+/* Pixel's front camera is a small centered punch-hole, not a pill notch.
+   aspect-ratio keeps it a true circle regardless of the screen's own ratio. */
+.camera {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3.6%;
+  aspect-ratio: 1;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  pointer-events: none;
+}

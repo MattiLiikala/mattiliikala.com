@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { projects, type ProjectSection } from '../data/projects'
+import { allProjects, type ProjectSection } from '../data/projects'
+import PhoneFrame from '../components/PhoneFrame'
 import styles from './ProjectPage.module.css'
 
 const fadeIn = (x: number) => ({
@@ -17,6 +18,7 @@ function SectionContent({ section }: { section: ProjectSection }) {
   const imageClass = [
     section.imageUncontained ? styles.sectionImageUncontained : styles.sectionImageBlock,
     section.imagePadding ? styles.sectionImagePadded : '',
+    section.imagePreserveAspect ? styles.sectionImagePreserveAspect : '',
   ].filter(Boolean).join(' ')
 
   const imageBlock = section.image && section.imageWidth && section.imageHeight && (
@@ -30,6 +32,29 @@ function SectionContent({ section }: { section: ProjectSection }) {
       <img src={section.image} alt="" loading="lazy" />
     </div>
   )
+
+  if (section.phoneImages) {
+    // Show placeholders until real screenshots are added, so the intended layout is visible.
+    const frames = section.phoneImages.length > 0 ? section.phoneImages : [undefined, undefined, undefined]
+
+    return (
+      <motion.div className={styles.sectionText} {...fadeIn(-40)}>
+        {section.heading && (
+          <h2 className={styles.sectionHeading}>{section.heading}</h2>
+        )}
+        <div className={styles.sectionBody}>
+          {paragraphs.map((para, i) => (
+            <p key={i} className={styles.paragraph}>{para}</p>
+          ))}
+        </div>
+        <div className={styles.phoneGallery}>
+          {frames.map((src, i) => (
+            <PhoneFrame key={i} src={src} />
+          ))}
+        </div>
+      </motion.div>
+    )
+  }
 
   if (!imageBlock) {
     return (
@@ -87,7 +112,7 @@ function SectionContent({ section }: { section: ProjectSection }) {
 
 export default function ProjectPage() {
   const { slug } = useParams<{ slug: string }>()
-  const project = projects.find((p) => p.slug === slug)
+  const project = allProjects.find((p) => p.slug === slug)
 
   useEffect(() => { window.scrollTo(0, 0) }, [slug])
 
@@ -122,6 +147,16 @@ export default function ProjectPage() {
               className={styles.externalLink}
             >
               {project.linkLabel ?? project.link}
+            </a>
+          )}
+          {project.githubLink && (
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.externalLink}
+            >
+              GitHub ↗
             </a>
           )}
         </div>

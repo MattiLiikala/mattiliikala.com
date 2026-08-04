@@ -5,6 +5,8 @@ import About from './components/About'
 import Projects from './components/Projects'
 import Footer from './components/Footer'
 import ProjectPage from './pages/ProjectPage'
+import { ownProjects } from './data/projects'
+import styles from './App.module.css'
 
 function Home() {
   useLayoutEffect(() => {
@@ -22,11 +24,12 @@ function Home() {
   }, [])
 
   return (
-    <>
+    <div className={styles.homeSections}>
       <Hero />
       <About />
       <Projects />
-    </>
+      <Projects heading='Own "hobby" projects' subHeading='Usually projects to solve some problem for myself. Always try to learn new things while at it.' projects={ownProjects} compact />
+    </div>
   )
 }
 

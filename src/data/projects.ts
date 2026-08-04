@@ -7,6 +7,8 @@ export interface ProjectSection {
   imageHeight?: number
   imageUncontained?: boolean  // renders image without rounded container/shadow
   imagePadding?: boolean  // adds whitespace around the image inside its container
+  imagePreserveAspect?: boolean  // on mobile, keep the image's true aspect ratio (height-capped, centered) instead of cropping it to the full content width — use for tall/portrait images like phone screenshots
+  phoneImages?: string[]  // mobile screenshots, each rendered wrapped in an iPhone frame
 }
 
 export interface ProjectUsageStat {
@@ -24,6 +26,7 @@ export interface ProjectData {
   year: string
   link?: string
   linkLabel?: string
+  githubLink?: string
   heroImage?: string  // full-width image right after hero
   cardImage: string
   imageStyle?: 'cover' | 'contain'
@@ -210,3 +213,53 @@ export const projects: ProjectData[] = [
     ],
   },
 ]
+
+// Personal side projects, built on my own time outside of client/employer work.
+export const ownProjects: ProjectData[] = [
+  {
+    slug: 'nippu',
+    title: 'Nippu',
+    description:
+      'Nippu is a mobile-first PWA that lets households manage shared lists and recipes together in real time.',
+    role: ['Designer', 'Developer'],
+    roleDescription: 'A solo side project — I designed and built the whole app end to end, from concept to a deployed PWA.',
+    year: '2026',
+    link: 'https://nippu.app',
+    linkLabel: 'nippu.app',
+    githubLink: 'https://github.com/MattiLiikala/Nippu',
+    // TODO: replace with a real card screenshot/graphic once available
+    cardImage: '/assets/project-nippu-card.png',
+    imageStyle: 'cover',
+    sections: [
+      {
+        heading: 'Background',
+        body: "Yes, yet another list app. Nippu started from a very ordinary problem: shopping lists, todos, packing lists living in three different apps and recipes scattered across screenshots and bookmarks. There are lots of these shared list apps, but none did the excact things that we needed in our household. We also shop the same items weekly, and have a rotating weekly menu, so place for saving item sets was needed. I wanted one shared, real-time list that everyone in the household could use — installable like a native app, but with no app store friction.\n\nThis was also my first whole development project learning AI assisted development.",
+      },
+      {
+        heading: 'What it does',
+        body: 'Households share a single account and password, and every member sees the same lists update live. Lists support drag-and-drop reordering and categorisation, and reusable "saved items" (like a standard weekly shop) can be added back in one tap.\n\nRecipes live in their own tab. Recipes use very basic template ingredients, instructions, time and serving sizes. The items in the ingredients can be dropped straight into a shopping list. The app works offline and installs to the home screen on both iOS and Android, with light and dark themes.',
+        image: '/assets/list-usage.gif',
+        imageLayout: 'left',
+        imageWidth: 270,
+        imageHeight: 600,
+        imagePreserveAspect: true,
+      },
+      {
+        heading: 'Tech stack',
+        body: 'Frontend is React 18 with Vite and Zustand for state, React Router for navigation and a drag-and-drop kit for list reordering. The backend is Express 5 with a PostgreSQL database and JWT-based auth.',
+      },
+      {
+        heading: 'Screens',
+        body: 'A few screens from the mobile PWA.',
+        phoneImages: ['/assets/project-nippu-login.png', '/assets/project-nippu-list.png', '/assets/project-nippu-cheesecake-recipe.png', '/assets/project-nippu-cheesecake-ingredients.png', '/assets/project-nippu-cheesecake-ingredients-add.png'],
+      },
+      {
+        heading: 'Learnings',
+        body: 'AI: \n\nDuring this project I learned alot about good prompting, how to set restrictions and rules for agents. I also learned that the code review can be overwhelming and it is important to split tasks to small chuncks, It is too easy to end up creating massive commits.\n\nAI design tools: \n\n I tested the Claude design for the first time. I believe it will mature to be a good tool for prototyping. It is also important to start with a good plan and research. It is important to also leave time for the "slow work" cause sometimes human brain needs a pause and pen & paper will remain my best friends for those tasks. I will continue researching these tools and find the balance within the two.',
+      },
+    ],
+  },
+]
+
+// Combined list, used for slug lookups on the project detail page.
+export const allProjects: ProjectData[] = [...projects, ...ownProjects]

@@ -1,15 +1,27 @@
 import { motion } from 'framer-motion'
 import styles from './Projects.module.css'
 import ProjectCard from './ProjectCard'
-import { projects } from '../data/projects'
+import { projects, type ProjectData } from '../data/projects'
 
-export default function Projects() {
+interface ProjectsProps {
+  heading?: string
+  subHeading?: string
+  projects?: ProjectData[]
+  compact?: boolean
+}
+
+export default function Projects({ heading = 'Projects', subHeading, projects: projectList = projects, compact = false }: ProjectsProps) {
+  const contentClass = [styles.content, compact ? styles.compact : ''].filter(Boolean).join(' ')
+
   return (
     <section className={styles.projects}>
-      <div className={styles.content}>
-        <p className={styles.heading}>Projects</p>
+      <div className={contentClass}>
+        <div>
+          <p className={styles.heading}>{heading}</p>
+          <p className={styles.subHeading}>{subHeading}</p>
+        </div>
         <div className={styles.grid}>
-          {projects.map((project, index) => (
+          {projectList.map((project, index) => (
             <motion.div
               key={project.slug}
               initial={{ opacity: 0, y: 48 }}

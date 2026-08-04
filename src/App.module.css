@@ -1,0 +1,17 @@
+/* Wraps all home page sections so there's always guaranteed whitespace
+   before the footer, regardless of which section ends up last. */
+.homeSections {
+  padding-bottom: 136px;
+}
+
+@media (min-width: 800px) and (max-width: 1279px) {
+  .homeSections {
+    padding-bottom: 160px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .homeSections {
+    padding-bottom: 240px;
+  }
+}

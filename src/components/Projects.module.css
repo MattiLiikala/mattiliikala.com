@@ -7,11 +7,18 @@
 }
 
 .content {
-  padding: 160px 24px;
+  padding: 160px 24px 24px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 40px;
+}
+
+/* Used for sections that follow another Projects section directly —
+   skips the large hero-to-content top spacing that only the first
+   section on the page needs. */
+.content.compact {
+  padding: 24px;
 }
 
 .heading {
@@ -21,7 +28,18 @@
   font-size: 48px;
   letter-spacing: 0;
   line-height: normal;
-  white-space: nowrap;
+  color: #121212;
+  flex-shrink: 0;
+  display: block;
+}
+
+.subHeading {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
   color: #121212;
   flex-shrink: 0;
   display: block;
@@ -34,10 +52,21 @@
   gap: 16px;
 }
 
+/* Mobile: shrink heading so longer section titles don't overflow */
+@media (max-width: 799px) {
+  .heading {
+    font-size: 32px;
+  }
+}
+
 /* Tablet: 2-column grid */
 @media (min-width: 800px) and (max-width: 1279px) {
   .content {
-    padding: 240px 80px;
+    padding: 240px 80px 80px;
+  }
+
+  .content.compact {
+    padding: 80px;
   }
 
   .grid {
@@ -50,7 +79,11 @@
 /* Desktop: 4-column grid */
 @media (min-width: 1280px) {
   .content {
-    padding: 320px 80px;
+    padding: 320px 80px 80px;
+  }
+
+  .content.compact {
+    padding: 80px;
   }
 
   .grid {

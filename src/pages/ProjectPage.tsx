@@ -14,7 +14,10 @@ const fadeIn = (x: number) => ({
 function SectionContent({ section }: { section: ProjectSection }) {
   const paragraphs = section.body.split('\n\n')
 
-  const imageClass = section.imageUncontained ? styles.sectionImageUncontained : styles.sectionImageBlock
+  const imageClass = [
+    section.imageUncontained ? styles.sectionImageUncontained : styles.sectionImageBlock,
+    section.imagePadding ? styles.sectionImagePadded : '',
+  ].filter(Boolean).join(' ')
 
   const imageBlock = section.image && section.imageWidth && section.imageHeight && (
     <div
@@ -98,11 +101,16 @@ export default function ProjectPage() {
           ← Back to front page
         </Link>
         <h1 className={styles.title}>{project.title}</h1>
+        {project.role && project.role.length > 0 && (
+          <p className={styles.subtitle}>
+            Role: <span className={styles.subtitleBold}>{project.role.join(', ')}</span>
+          </p>
+        )}
         {project.description && (
           <p className={styles.heroText}>{project.description}</p>
         )}
-        {project.role && (
-          <p className={styles.heroText}>{project.role}</p>
+        {project.roleDescription && (
+          <p className={styles.heroText}>{project.roleDescription}</p>
         )}
         <div className={styles.timestamp}>
           <span className={styles.year}>{project.year}</span>
@@ -117,6 +125,16 @@ export default function ProjectPage() {
             </a>
           )}
         </div>
+        {project.usage && project.usage.length > 0 && (
+          <div className={styles.usageList}>
+            {project.usage.map((stat, i) => (
+              <div key={i} className={styles.usageStat}>
+                <span className={styles.usageValue}>{stat.value}</span>
+                <span className={styles.usageLabel}>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Full-width image after hero */}

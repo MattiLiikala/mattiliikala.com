@@ -44,6 +44,21 @@
   width: 100%;
 }
 
+.subtitle {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #000;
+  width: 100%;
+  margin-top: -6px;
+  margin-bottom: 12px;
+}
+
+.subtitleBold {
+  font-weight: 700;
+}
+
 .heroText {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
@@ -81,6 +96,41 @@
 
 .externalLink:hover {
   text-decoration: underline;
+}
+
+.usageList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 48px;
+  padding-top: 24px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.usageStat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 280px;
+}
+
+.usageValue {
+  font-family: 'Parkinsans', sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.1;
+  color: #121212;
+  -webkit-text-fill-color: #121212;
+}
+
+.usageLabel {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #000;
 }
 
 /* ── Full-width hero image ──────────────────────────────── */
@@ -145,6 +195,16 @@
   height: auto;
 }
 
+.sectionImagePadded {
+  padding: 32px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.sectionImagePadded img {
+  object-fit: contain;
+}
+
 /* Shared text styles */
 .sectionHeading {
   font-family: 'Parkinsans', sans-serif;
@@ -198,6 +258,20 @@
     font-size: 36px;
   }
 
+  .usageList {
+    column-gap: 28px;
+    row-gap: 16px;
+    padding-top: 16px;
+  }
+
+  .usageValue {
+    font-size: 28px;
+  }
+
+  .usageLabel {
+    font-size: 16px;
+  }
+
   .sectionText {
     padding: 48px 24px;
   }
@@ -224,6 +298,15 @@
     height: auto;
     max-height: 320px;
     object-fit: cover;
+  }
+
+  .sectionImagePadded {
+    padding: 20px;
+  }
+
+  .sectionImagePadded img {
+    max-height: 280px;
+    object-fit: contain;
   }
 
   .bottomNav {

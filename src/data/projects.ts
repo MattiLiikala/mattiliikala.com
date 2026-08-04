@@ -6,13 +6,21 @@ export interface ProjectSection {
   imageWidth?: number  // Figma px at 1280 content width
   imageHeight?: number
   imageUncontained?: boolean  // renders image without rounded container/shadow
+  imagePadding?: boolean  // adds whitespace around the image inside its container
+}
+
+export interface ProjectUsageStat {
+  value: string
+  label: string
 }
 
 export interface ProjectData {
   slug: string
   title: string
   description?: string
-  role?: string
+  role?: string[]
+  roleDescription?: string
+  usage?: ProjectUsageStat[]
   year: string
   link?: string
   linkLabel?: string
@@ -29,7 +37,14 @@ export const projects: ProjectData[] = [
     title: 'Mehiläinen Design System',
     description:
       'This multi themed design system is used by both professional users and customers of Mehiläinen. It provides both Design & Developer utilities and complete styleguide to be used.',
-    role: 'My role in this project was Design System Lead. Since the team was small I was also the designer and contributed in development tasks.',
+    role: ['Design System Lead', 'Designer', 'Developer'],
+    roleDescription: 'My role in this project was Design System Lead. Since the team was small I was also the designer and contributed in development tasks.',
+    usage: [
+      { value: '10+', label: 'applications' },
+      { value: '7', label: 'designers' },
+      { value: '15+', label: 'contributors' },
+      { value: '50+', label: 'active users' },
+    ],
     year: '2023–2026',
     cardImage: '/assets/project-mehi-ds.png',
     imageStyle: 'contain',
@@ -72,7 +87,11 @@ export const projects: ProjectData[] = [
   {
     slug: 'appointment-booking-system-update',
     title: 'Mehiläinen appointment booking system update',
-    role: 'My role in the project was designer. I worked in service design process as well as UX and UI design for both admin and customer UI.',
+    role: ['Designer'],
+    roleDescription: 'My role in the project was designer. I worked in service design process as well as UX and UI design for both admin and customer UI.',
+    usage: [
+      { value: '3000+', label: 'daily reservations' },
+    ],
     year: '2021–2023',
     link: 'https://ajanvaraus.mehilainen.fi',
     linkLabel: 'ajanvaraus.mehilainen.fi',
@@ -119,7 +138,11 @@ export const projects: ProjectData[] = [
     title: 'Opintokamu mobile game',
     description:
       'This project was created to help students discuss difficult topics, such as time management, performance anxiety and bullying.',
-    role: 'My role in this project was service designer and UI designer.',
+    role: ['Designer'],
+    roleDescription: 'My role in the project was designer. I worked in service design process as well as UX and UI design',
+    usage: [
+      { value: '30%', label: 'registered secondary education institutions in Finland' },
+    ],
     year: '2018',
     cardImage: '/assets/project-opintokamu.png',
     sections: [
@@ -158,6 +181,9 @@ export const projects: ProjectData[] = [
     title: 'Luonnontieteilijöiden jouluristeily rebrand',
     description:
       'As an active member of different student organisations during my studies in university, I did graphic design for different events and groups. For Luonnontietelijöiden jouluristeily I did a complete rebranding in 2018.',
+    usage: [
+      { value: '2180', label: 'student cruisers yearly' },
+    ],
     year: '2018',
     heroImage: '/assets/project-jouluristeily-cover.png',
     cardImage: '/assets/project-jouluristeily.png',
@@ -171,6 +197,7 @@ export const projects: ProjectData[] = [
         imageLayout: 'left',
         imageWidth: 400,
         imageHeight: 489,
+        imagePadding: true,
       },
       {
         heading: 'Brand graphic',

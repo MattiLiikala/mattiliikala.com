@@ -112,7 +112,7 @@ export default function About() {
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
             viewport={{ once: true, margin: '-80px' }}
           >
-            Currently I work on design systems, and I'm testing and researching different approaches to use AI in design systems and design work. I have broad knowledge on all areas of design work (service design, UX, UI , accessibility). My focus on development work has always been on front-end development.
+            My latest work has been on design systems. Currently I'm testing and researching different approaches to use AI in design work and how to build best design systems for AI. I have broad knowledge on all areas of design work (service design, UX, UI , accessibility). My focus on development work has always been on front-end development, but I'm currently broadening that expertice so I can work fullstack when building with AI.
           </motion.p>
           <p className={styles.spacer}> </p>
           <motion.p

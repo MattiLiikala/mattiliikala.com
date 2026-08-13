@@ -106,6 +106,14 @@ export const projects: ProjectData[] = [
         body: 'Old Mehiläinen booking system was outdated and needed to be updated. In the process the technology stack was updated, backend restructured and the frontend was completely redesigned.',
       },
       {
+        heading: 'Goal',
+        body: 'In the new system, goal was to create a search engine for appointment booking system where every service could be found easily, using different paths. We also wanted to treat the user paths company wide, so no matter if the user arrived from website, search engine or mobile app, user experience should feel uniform.\n\nLogged in user experience was also redesigned, providing more customized view, have access to old visits and book appointments based on past visits and have access to occupational health information.\n\n Accessability was also taken to consideration from the beginning and it needed to reach the AA requirements. \n\nDifferent metrix were set to ensure the goals were met.',
+        image: '/assets/target.jpg',
+        imageLayout: 'left',
+        imageWidth: 300,
+        imageHeight: 256,
+      },
+      {
         heading: 'Service backend update',
         body: 'In the project the whole service backend structure was rebuilt and an optimal structure to help customers find the correct health services was created.\n\nThe services were restructured to follow node-structure, meaning that services could have child services. This structure was designed to help users when searching correct service and appointment type.',
       },
@@ -133,6 +141,14 @@ export const projects: ProjectData[] = [
         imageLayout: 'left',
         imageWidth: 406,
         imageHeight: 411,
+      },
+      {
+        heading: 'Challenges',
+        body: 'Making it natural for the user to select the "lane" to follow was something that I took a lot of time to finessing. Lot of consideration and testing was done to determine the words being used. Basically biggest selection was changing between asking "what kind of customer are you?" or "who is paying?". After the testing and research it was clear that the latter was more important for the user. Sometimes the smallest changes can be very important. \n\nOne other big challenge was with the multi-level search engine and its accessibility. We wanted to make it intuitive for all the users, but because of the complexity of the component, we spent a lot of design hours to create the path intuitive for all the different users. In the end, some compromises were needed for the first release, but the component was evolved during years, and still keeps getting changes.'
+      },
+      {
+        heading: 'Results',
+        body: "In the end, all the goal metrix mentioned in the beginning were met. The number of online booking kept rising (sorry for not having actual numbers) and different user groups started to use online booking instead of calling. "
       },
     ],
   },

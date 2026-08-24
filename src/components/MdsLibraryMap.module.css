@@ -1,0 +1,64 @@
+.wrap {
+  width: 100%;
+  max-width: 560px;
+}
+
+.svgDesktop {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.svgMobile {
+  display: none;
+}
+
+.nodeLabel {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  fill: #121212;
+}
+
+.nodeLabelMore {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 12px;
+  fill: rgba(0, 0, 0, 0.55);
+}
+
+.centerLabel {
+  font-family: 'Parkinsans', sans-serif;
+  font-weight: 500;
+  font-size: 19px;
+  fill: #121212;
+}
+
+.centerSublabel {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 10.5px;
+  fill: rgba(0, 0, 0, 0.6);
+}
+
+/* ── Mobile: swap to the folder-tree layout so every label renders close
+   to its natural size instead of shrinking to fit a hexagon that has no
+   room on a narrow screen. ───────────────────────────────────────────── */
+@media (max-width: 799px) {
+  .wrap {
+    max-width: 100%;
+  }
+
+  .svgDesktop {
+    display: none;
+  }
+
+  .svgMobile {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}

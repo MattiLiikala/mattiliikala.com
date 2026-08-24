@@ -9,6 +9,7 @@ export interface ProjectSection {
   imagePadding?: boolean  // adds whitespace around the image inside its container
   imagePreserveAspect?: boolean  // on mobile, keep the image's true aspect ratio (height-capped, centered) instead of cropping it to the full content width — use for tall/portrait images like phone screenshots
   phoneImages?: string[]  // mobile screenshots, each rendered wrapped in an iPhone frame
+  diagram?: 'mds-library-map'  // renders an animated foundations/library-hub diagram below the body text
 }
 
 export interface ProjectUsageStat {
@@ -55,15 +56,19 @@ export const projects: ProjectData[] = [
     sections: [
       {
         heading: 'Beginning',
-        body: 'The design system project was born from the needs of designers and developers. First it was created as a side project by me and my developer colleague. When the project was proven to be worth investing more resources, first I started as a full time Design system lead and later on we got one full time developer to the team.',
+        body: 'The design system project was born from the needs of designers and developers. Mehiläinen had allready lot of different applications, each having the same brand to follow, but were separated, as every component was hand made for the project. First it was created as a side project by me and my developer colleague. When the project was proven to be worth investing more resources, first I started as a full time Design system lead and later on we got one full time developer to the team.',
       },
       {
         heading: 'Strong foundations',
-        body: "Everything starts from strong foundations. MDS started with creating primitive tokens (Typography, colors, radius, space etc.). In the beginning, Mehiläinen didn't have a strict semantic tokenisation to follow and all the different applications were designed as a single product. For that reason, the first iteration of design system only relied on the core tokens.",
+        body: "Everything starts from strong foundations. MDS started with creating primitive tokens (Typography, colors, radius, space etc.). In the beginning, Mehiläinen didn't have a strict semantic tokenisation to follow and all the different applications were designed as a single product. For that reason, the first iteration of design system only relied on the primitive tokens.",
         image: '/assets/project-mds-strong-foundations.png',
         imageLayout: 'right',
         imageWidth: 487,
         imageHeight: 402,
+      },
+      {
+        heading: 'Community driven',
+        body: 'From the beginning it was important that every team was involved in the development of the design system. Transparency was provided by keeping weekly status reports in the Slack community, and every question and new feature were discussed in the same channel so all the decission making was always visible.\n\nWhen developing new key features, important factors were always involved in the workshops and architecture plannings. The project had always two separate development roadmaps, MDS team roadmap for core feature development and contribution roadmap for creating new components and features. Contribution follows strict review process that involves design reviews, development reviews and accessibility reviews.',
       },
       {
         heading: 'Multi themed',
@@ -82,8 +87,14 @@ export const projects: ProjectData[] = [
         imageHeight: 402,
       },
       {
-        heading: 'Community driven',
-        body: 'From the beginning it was important that every team was involved in the development of the design system. Transparency was provided by keeping weekly status reports in the Slack community.\n\nWhen developing new key features, important factors were always involved in the workshops and architecture plannings. The project had always two separate development roadmaps, MDS team roadmap for core feature development and contribution roadmap for creating new components and features. Contribution follows strict review process that involves design reviews, development reviews and accessibility reviews.',
+        heading: 'Scalable future',
+        body: 'As the component tokens were established, it now allowed to create multiple component libraries. Most of the Mehiläinen products were built using react, so the first version was purely react components and other environments got only the tokens. Now with the component tokens, in the future, most of the component changes are made on the token level, so when the tokens are changed, multiple component libraries could get the changes without updates.',
+        diagram: 'mds-library-map',
+        imageLayout: 'left',
+      },
+      {
+        heading: 'Learnings',
+        body: "As a whole, design system building is a great way to connect people, and make the all around user experience consistent, not only because the resources are the same, but it makes it easier for developers to communicate between teams, as the connections are already made when building the creator community. For the community part, I'm truly happy how it worked. I learned a lot how much pushing these kind of changes need, constant mentioning and teaching is required for not only the creators, but product owners, managers, business and so on. \n\n I also would change the tokens usage, starting with only the core tokens created a lot of painpoints and refactoring. Building a great foundation structure from the start really is essential.",
       },
     ],
   },

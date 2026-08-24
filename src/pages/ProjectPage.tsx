@@ -3,6 +3,7 @@ import { Link, useParams, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { allProjects, type ProjectSection } from '../data/projects'
 import PhoneFrame from '../components/PhoneFrame'
+import MdsLibraryMap from '../components/MdsLibraryMap'
 import styles from './ProjectPage.module.css'
 
 const fadeIn = (x: number) => ({
@@ -11,6 +12,17 @@ const fadeIn = (x: number) => ({
   transition: { duration: 0.6, ease: 'easeOut' as const },
   viewport: { once: true, margin: '-60px' },
 })
+
+function renderParagraph(text: string) {
+  // Single '\n' = line break within the paragraph (no gap); '\n\n' (handled
+  // by the caller splitting into separate <p> elements) is the paragraph break.
+  return text.split('\n').map((line, i, lines) => (
+    <span key={i}>
+      {line}
+      {i < lines.length - 1 && <br />}
+    </span>
+  ))
+}
 
 function SectionContent({ section }: { section: ProjectSection }) {
   const paragraphs = section.body.split('\n\n')
@@ -44,7 +56,7 @@ function SectionContent({ section }: { section: ProjectSection }) {
         )}
         <div className={styles.sectionBody}>
           {paragraphs.map((para, i) => (
-            <p key={i} className={styles.paragraph}>{para}</p>
+            <p key={i} className={styles.paragraph}>{renderParagraph(para)}</p>
           ))}
         </div>
         <div className={styles.phoneGallery}>
@@ -56,7 +68,7 @@ function SectionContent({ section }: { section: ProjectSection }) {
     )
   }
 
-  if (!imageBlock) {
+  if (!imageBlock && !section.diagram) {
     return (
       <motion.div className={styles.sectionText} {...fadeIn(-40)}>
         {section.heading && (
@@ -64,7 +76,7 @@ function SectionContent({ section }: { section: ProjectSection }) {
         )}
         <div className={styles.sectionBody}>
           {paragraphs.map((para, i) => (
-            <p key={i} className={styles.paragraph}>{para}</p>
+            <p key={i} className={styles.paragraph}>{renderParagraph(para)}</p>
           ))}
         </div>
       </motion.div>
@@ -80,13 +92,15 @@ function SectionContent({ section }: { section: ProjectSection }) {
       )}
       <div className={styles.sectionBody}>
         {paragraphs.map((para, i) => (
-          <p key={i} className={styles.paragraph}>{para}</p>
+          <p key={i} className={styles.paragraph}>{renderParagraph(para)}</p>
         ))}
       </div>
     </motion.div>
   )
 
-  const animatedImage = (
+  // The side content is either a project image, or (for sections with no
+  // image, like "Scalable future") an inline diagram — laid out the same way.
+  const sideContent = imageBlock ? (
     <motion.div
       className={imageClass}
       style={{
@@ -97,14 +111,18 @@ function SectionContent({ section }: { section: ProjectSection }) {
     >
       <img src={section.image} alt="" loading="lazy" />
     </motion.div>
+  ) : (
+    <motion.div className={styles.sectionDiagramBlock} {...fadeIn(isImageLeft ? -40 : 40)}>
+      {section.diagram === 'mds-library-map' && <MdsLibraryMap />}
+    </motion.div>
   )
 
   return (
     <div className={`${styles.sectionRow} ${isImageLeft ? styles.imageFirst : ''}`}>
       {isImageLeft ? (
-        <>{animatedImage}{textBlock}</>
+        <>{sideContent}{textBlock}</>
       ) : (
-        <>{textBlock}{animatedImage}</>
+        <>{textBlock}{sideContent}</>
       )}
     </div>
   )

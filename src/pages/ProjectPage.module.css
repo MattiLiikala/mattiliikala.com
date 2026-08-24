@@ -6,6 +6,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  /* Sections fade in via a transform: translateX() before whileInView
+     triggers (see fadeIn() in ProjectPage.tsx). Until a section scrolls
+     into view, that offset paints past the right edge and opens up a
+     spurious horizontal scrollbar — clip it here instead. */
+  overflow-x: hidden;
 }
 
 /* ── Hero ───────────────────────────────────────────────── */
@@ -185,6 +190,14 @@
   object-fit: cover;
 }
 
+/* Inline diagram, sized to sit next to text like an image does */
+.sectionDiagramBlock {
+  flex-shrink: 0;
+  width: 46%;
+  min-width: 320px;
+  max-width: 560px;
+}
+
 .sectionImageUncontained {
   flex-shrink: 0;
 }
@@ -304,9 +317,15 @@
     width: 160px;
   }
 
-  /* On mobile, image comes after text regardless of imageLayout */
+  /* On mobile, image/diagram comes after text regardless of imageLayout */
   .imageFirst {
     flex-direction: column-reverse;
+  }
+
+  .sectionDiagramBlock {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .sectionImageBlock:not(.sectionImagePreserveAspect) {

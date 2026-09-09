@@ -211,7 +211,8 @@ export const projects: ProjectData[] = [
     title: 'Luonnontieteilijöiden jouluristeily rebrand',
     description:
       'As an active member of different student organisations during my studies in university, I did graphic design for different events and groups. For Luonnontietelijöiden jouluristeily I did a complete rebranding in 2018.',
-    usage: [
+    role: ['Designer'],
+      usage: [
       { value: '2180', label: 'student cruisers yearly' },
     ],
     year: '2018',

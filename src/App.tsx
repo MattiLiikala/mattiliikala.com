@@ -28,7 +28,7 @@ function Home() {
       <Hero />
       <About />
       <Projects />
-      <Projects heading='Own "hobby" projects' subHeading='Usually projects to solve some problem for myself. Always try to learn new things while at it.' projects={ownProjects} compact />
+      <Projects heading='Own projects' subHeading='My hobby projects. Usually projects to solve some problem for myself. I always try to learn new things while at it.' projects={ownProjects} compact />
     </div>
   )
 }

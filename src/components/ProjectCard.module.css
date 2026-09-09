@@ -1,19 +1,44 @@
 .card {
   position: relative;
-  aspect-ratio: 412 / 316;
-  border-radius: 32px;
-  overflow: hidden;
-  cursor: pointer;
-  width: 100%;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.4);
-  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.card:hover {
-  box-shadow: none;
-  transition: 0.3s ease-in; 
+.bgRect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  aspect-ratio: 412 / 316;
+  z-index: -1;
+  background-color: var(--color-dark);
+  border-radius: 16px;
+  transform: rotate(var(--bg-rotation));
+  transition: transform 0.3s ease-in;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.4);
+}
+
+.imageBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 412 / 316;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.4);
+}
+
+.imageBackdrop {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-bg);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.4);
 }
 
 .image {
@@ -27,54 +52,54 @@
   display: block;
 }
 
-.overlay {
-  flex: 1 0 0;
-  min-height: 1px;
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(240, 235, 209, 0.2), rgba(0, 0, 0, 0.2));
+}
+
+.card:hover .bgRect {
+  transform: rotate(0deg);
+}
+
+.text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  overflow: hidden;
-  position: relative;
+  gap: 8px;
+  padding: 0 24px 24px;
   width: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.25) 61.058%,
-    rgba(0, 0, 0, 0.65) 100%
-  );
+  /* Rest closer to the image by default and settle down to the full gap on
+     hover — a transform so it never changes the card's own box size (which
+     would otherwise reflow the grid/siblings around it). */
+  transform: translateY(-8px);
+  transition: transform 0.3s ease-in;
 }
 
-.card:hover .overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.23) 0%,
-    rgba(0, 0, 0, 0.45) 61.058%,
-    rgba(0, 0, 0, 0.75) 100%
-  );
-  transition: 0.3s ease-in; 
-}
-
-.titleWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 32px;
-  flex-shrink: 0;
-  width: 100%;
+.card:hover .text {
+  transform: translateY(0);
 }
 
 .title {
-  flex: 1 0 0;
-  min-width: 1px;
   font-family: 'Parkinsans', sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 18px;
+  line-height: 24px;
   letter-spacing: 0;
-  text-align: left;
-  line-height: normal;
+  color: var(--color-text-light);
   word-break: break-word;
-  color: #fff;
-  -webkit-text-fill-color: #fff;
+}
+
+.role {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0;
+  color: #f0ebd1;
+}
+
+.roleBold {
+  font-weight: 700;
 }

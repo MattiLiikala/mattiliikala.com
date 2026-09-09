@@ -7,7 +7,7 @@
 }
 
 .content {
-  padding: 160px 24px 24px;
+  padding: 160px 32px 32px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -18,7 +18,7 @@
    skips the large hero-to-content top spacing that only the first
    section on the page needs. */
 .content.compact {
-  padding: 24px;
+  padding: 32px;
 }
 
 .heading {
@@ -49,7 +49,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 32px;
 }
 
 /* Mobile: shrink heading so longer section titles don't overflow */
@@ -71,8 +71,8 @@
 
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 16px;
-    row-gap: 16px;
+    column-gap: 28px;
+    row-gap: 28px;
   }
 }
 
@@ -88,7 +88,7 @@
 
   .grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 16px;
-    row-gap: 16px;
+    column-gap: 32px;
+    row-gap: 32px;
   }
 }

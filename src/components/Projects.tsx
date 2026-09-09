@@ -33,8 +33,10 @@ export default function Projects({ heading = 'Projects', subHeading, projects: p
                 slug={project.slug}
                 title={project.title}
                 image={project.cardImage}
+                role={project.role}
                 imageStyle={project.imageStyle}
                 imagePosition={project.imagePosition}
+                index={index}
               />
             </motion.div>
           ))}

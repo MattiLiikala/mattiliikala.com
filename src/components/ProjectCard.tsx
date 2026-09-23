@@ -58,7 +58,7 @@ export default function ProjectCard({
         <div className={styles.imageOverlay} />
       </div>
       <div className={styles.text}>
-        <p className={styles.title}>{title}</p>
+        <h3 className={styles.title}>{title}</h3>
         {role && role.length > 0 && (
           <p className={styles.role}>
             Role: <span className={styles.roleBold}>{role.join(', ')}</span>

@@ -17,7 +17,7 @@ export default function Projects({ heading = 'Projects', subHeading, projects: p
     <section className={styles.projects}>
       <div className={contentClass}>
         <div>
-          <p className={styles.heading}>{heading}</p>
+          <h2 className={styles.heading}>{heading}</h2>
           <p className={styles.subHeading}>{subHeading}</p>
         </div>
         <div className={styles.grid}>

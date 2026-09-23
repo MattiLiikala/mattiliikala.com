@@ -47,10 +47,11 @@
   font-family: 'Parkinsans', sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 56px;
+  /* clamp instead of a fixed 56px so the name can never get clipped on
+     narrow phones — scales down smoothly instead of overflowing */
+  font-size: clamp(32px, 11vw, 56px);
   letter-spacing: 0;
   line-height: normal;
-  white-space: nowrap;
   color: #121212;
   margin-top: 37px;
 }
@@ -61,9 +62,6 @@
     justify-content: center;
     padding: 80px;
   }
-  .name {
-    white-space: normal;
-  }
 }
 
 /* Desktop */
@@ -71,8 +69,5 @@
   .content {
     justify-content: center;
     padding: 80px;
-  }
-  .name {
-    white-space: normal;
   }
 }

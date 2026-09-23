@@ -18,6 +18,10 @@ function Home() {
   }, [])
 
   useEffect(() => {
+    document.title = 'Matti Liikala'
+  }, [])
+
+  useEffect(() => {
     return () => {
       sessionStorage.setItem('homeScroll', String(window.scrollY))
     }
@@ -36,10 +40,12 @@ function Home() {
 export default function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:slug" element={<ProjectPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:slug" element={<ProjectPage />} />
+        </Routes>
+      </main>
       <Footer />
     </>
   )

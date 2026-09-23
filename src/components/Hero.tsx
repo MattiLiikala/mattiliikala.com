@@ -135,7 +135,7 @@ export default function Hero() {
 
       <div className={styles.content}>
         <p className={styles.greeting}>Hi, I am</p>
-        <p className={styles.name}>Matti Liikala</p>
+        <h1 className={styles.name}>Matti Liikala</h1>
       </div>
     </section>
   )

@@ -41,7 +41,7 @@ function SectionContent({ section }: { section: ProjectSection }) {
         aspectRatio: `${section.imageWidth} / ${section.imageHeight}`,
       }}
     >
-      <img src={section.image} alt="" loading="lazy" />
+      <img src={section.image} alt={section.imageAlt ?? ''} loading="lazy" />
     </div>
   )
 
@@ -61,7 +61,7 @@ function SectionContent({ section }: { section: ProjectSection }) {
         </div>
         <div className={styles.phoneGallery}>
           {frames.map((src, i) => (
-            <PhoneFrame key={i} src={src} />
+            <PhoneFrame key={i} src={src} alt={section.phoneImageAlts?.[i]} />
           ))}
         </div>
       </motion.div>
@@ -109,7 +109,7 @@ function SectionContent({ section }: { section: ProjectSection }) {
       }}
       {...fadeIn(isImageLeft ? -40 : 40)}
     >
-      <img src={section.image} alt="" loading="lazy" />
+      <img src={section.image} alt={section.imageAlt ?? ''} loading="lazy" />
     </motion.div>
   ) : (
     <motion.div className={styles.sectionDiagramBlock} {...fadeIn(isImageLeft ? -40 : 40)}>
@@ -133,6 +133,10 @@ export default function ProjectPage() {
   const project = allProjects.find((p) => p.slug === slug)
 
   useEffect(() => { window.scrollTo(0, 0) }, [slug])
+
+  useEffect(() => {
+    if (project) document.title = `${project.title} — Matti Liikala`
+  }, [project])
 
   if (!project) return <Navigate to="/" replace />
 
@@ -194,7 +198,7 @@ export default function ProjectPage() {
       {project.heroImage && (
         <motion.img
           src={project.heroImage}
-          alt=""
+          alt={project.heroImageAlt ?? ''}
           loading="lazy"
           className={styles.heroImage}
           initial={{ opacity: 0 }}

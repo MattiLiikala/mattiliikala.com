@@ -311,6 +311,45 @@ export const ownProjects: ProjectData[] = [
       },
     ],
   },
+  {
+    slug: 'this-portfolio',
+    title: 'This portfolio',
+    description:
+      "As I needed a new portfolio, I also wanted to learn something on the road. I created and published first iteration with Figma Sites, then moved to creating React Vite app using different AI tools to my aid, mostly Claude code and Figma agents.",
+    role: ['Designer', 'Developer'],
+    year: '2026',
+    githubLink: 'https://github.com/MattiLiikala/mattiliikala.com',
+    cardImage: '/assets/project-portfolio-card.png',
+    imageStyle: 'cover',
+    sections: [
+      {
+        heading: 'Background',
+        body: "I needed a new portfolio page and instead of just building this site, I treated it as its own small case study — a place to learn how to utilize different AI tools, how to build guidelines and restrictions, when and where to work with AI and when to make your own adjustments.",
+      },
+      {
+        heading: 'Figma first',
+        body: "The first version was built entirely inside Figma, published as a Figma Site — no code yet, just Figma's own publishing. It was a fast way to create something that works pretty well, and it actually handles responsive design good enough.\n\nMy plan was to always create an actual site, but for the MVP it was a great tool. Figma Sites is solid for structure and layout, but animation and interaction are still limited — fine for hover states and simple transitions, but nothing else at the moment. That's when I transitioned the project into code.",
+        image: "/assets/project-portfolio-figma-sites.png",
+        imageAlt: "The Figma Sites file for the portfolio's first iteration, showing the desktop, tablet and mobile frames for the home page side by side, plus the site's page list in the left sidebar.",
+        imageLayout: 'left',
+        imageWidth: 500,
+        imageHeight: 350,
+        imagePreserveAspect: true,
+      },
+      {
+        heading: 'From Figma to code',
+        body: "Once the structure and content held up, I rebuilt the site as a React app with Vite, working with Claude Code for the implementation. It was pretty fast to build with a reference site up and running. Fast I learned what kind of prompting is good, so there is no unnecessary rewriting. I also started to create styling and code guidelines into .md files and as skills. First the code review was a load of work, but when dividing work to smaller tasks and having strict guidelines, it became faster.\n\nWhen starting to create separate smaller tasks, I started to optimize the workflow. Figma's MCP for Claude is a great tool to move the developed project to Figma to work on. When working on a new feature, I'd draft a new section or component using Figma Agent to generate some versions, then I might add some iterations or own designs (no need to prompt everything when it's faster). When the feature is good enough, I'd move it to code. If something changes on the development process, it's easy to use MCP server to sync up the designs and move forward.\n\nI switched between working with Claude on MCP and testing Figma's own AI agent, there are some differences, and depending on the task, there might be reasons to switch between models. Figma's AI agent uses foundational models from major providers including Anthropic (Claude), OpenAI (GPT), and Google (Gemini) via the Figma Sub-processors list, and as it's still free to use in beta, it's worth using.",
+      },
+      {
+        heading: 'Motion with a light touch',
+        body: "I wanted the site to use motion to make it little more personal. I wanted the design to represent me as a person but also as a designer, playful design but never at a cost of readability. The hero especially plays with scroll to feel more alive than a static page — but the motion stops when stopping to read something. Motion has to support the content, not fight it: nothing should make text harder to read, and nothing should just keep animating forever with no way to look away from it.\n\nAI tools ended up saving the most time here. Describing a scroll effect in words and iterating on its easing and timing with Claude Code was a lot faster than hand-tuning every keyframe myself.",
+      },
+      {
+        heading: 'Learnings',
+        body: "When to draft something myself first versus prompting an agent straight away — for anything about tone or visual character, giving an agent my own rough draft gets a much better result than describing it from scratch.\n\nHow fast motion design gets once you can describe a feeling in words and iterate live, instead of hand-tuning every keyframe.\n\nWriting restrictions, guidelines and small skills for the agents I use, so results stay consistent instead of reinventing the same pattern every time — a habit I now reach for on other projects too.\n\nLeaning on plugins to catch what I'd otherwise miss, like running an accessibility audit against the finished site instead of relying only on my own eye.",
+      },
+    ],
+  },
 ]
 
 // Combined list, used for slug lookups on the project detail page.

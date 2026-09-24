@@ -99,6 +99,10 @@ export const projects: ProjectData[] = [
         imageLayout: 'left',
       },
       {
+        heading: 'AI in the workflow',
+        body: 'During the last year of development, I added more and more AI usage to project workflow. The benefits have been evident, particularly in maintaining design system; AI tools played a significant role in tasks such as creating and maintaining documentation, managing tokens, handling component variants, and synchronizing development between Figma and the coded product. Also documentation was reconsidered to be more readable for agents.'
+      },
+      {
         heading: 'Learnings',
         body: "As a whole, design system building is a great way to connect people, and make the all around user experience consistent, not only because the resources are the same, but it makes it easier for developers to communicate between teams, as the connections are already made when building the creator community. For the community part, I'm truly happy how it worked. I learned a lot how much pushing these kind of changes need, constant mentioning and teaching is required for not only the creators, but product owners, managers, business and so on. \n\n I also would change the tokens usage, starting with only the core tokens created a lot of painpoints and refactoring. Building a great foundation structure from the start really is essential.",
       },

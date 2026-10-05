@@ -198,6 +198,12 @@
   max-width: 560px;
 }
 
+/* Smaller diagrams (e.g. booking steps) take only the room they need */
+.sectionDiagramBlockCompact {
+  width: 384px;
+  min-width: 0;
+}
+
 .sectionImageUncontained {
   flex-shrink: 0;
 }

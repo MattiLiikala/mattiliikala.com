@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { allProjects, type ProjectSection } from '../data/projects'
 import PhoneFrame from '../components/PhoneFrame'
 import MdsLibraryMap from '../components/MdsLibraryMap'
+import BookingSteps from '../components/BookingSteps'
 import styles from './ProjectPage.module.css'
 
 const fadeIn = (x: number) => ({
@@ -112,8 +113,12 @@ function SectionContent({ section }: { section: ProjectSection }) {
       <img src={section.image} alt={section.imageAlt ?? ''} loading="lazy" />
     </motion.div>
   ) : (
-    <motion.div className={styles.sectionDiagramBlock} {...fadeIn(isImageLeft ? -40 : 40)}>
+    <motion.div
+      className={`${styles.sectionDiagramBlock} ${section.diagram === 'booking-steps' ? styles.sectionDiagramBlockCompact : ''}`}
+      {...fadeIn(isImageLeft ? -40 : 40)}
+    >
       {section.diagram === 'mds-library-map' && <MdsLibraryMap />}
+      {section.diagram === 'booking-steps' && <BookingSteps />}
     </motion.div>
   )
 

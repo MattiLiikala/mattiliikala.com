@@ -11,7 +11,7 @@ export interface ProjectSection {
   imagePreserveAspect?: boolean  // on mobile, keep the image's true aspect ratio (height-capped, centered) instead of cropping it to the full content width — use for tall/portrait images like phone screenshots
   phoneImages?: string[]  // mobile screenshots, each rendered wrapped in an iPhone frame
   phoneImageAlts?: string[]  // alt text for `phoneImages`, matched by index
-  diagram?: 'mds-library-map'  // renders an animated foundations/library-hub diagram below the body text
+  diagram?: 'mds-library-map' | 'booking-steps'  // renders an animated diagram beside the body text, in place of an image
 }
 
 export interface ProjectUsageStat {
@@ -50,7 +50,7 @@ export const projects: ProjectData[] = [
       { value: '10+', label: 'applications' },
       { value: '7', label: 'designers' },
       { value: '15+', label: 'contributors' },
-      { value: '50+', label: 'active users' },
+      { value: '30+', label: 'active users' },
     ],
     year: '2023–2026',
     cardImage: '/assets/project-mehi-ds.png',
@@ -113,9 +113,6 @@ export const projects: ProjectData[] = [
     title: 'Mehiläinen appointment booking system update',
     role: ['Designer'],
     roleDescription: 'My role in the project was designer. I worked in service design process as well as UX and UI design for both admin and customer UI.',
-    usage: [
-      { value: '3000+', label: 'daily reservations' },
-    ],
     year: '2021–2023',
     link: 'https://ajanvaraus.mehilainen.fi',
     linkLabel: 'ajanvaraus.mehilainen.fi',
@@ -130,10 +127,8 @@ export const projects: ProjectData[] = [
       {
         heading: 'Goal',
         body: 'In the new system, goal was to create a search engine for appointment booking system where every service could be found easily, using different paths. We also wanted to treat the user paths company wide, so no matter if the user arrived from website, search engine or mobile app, user experience should feel uniform.\n\nLogged in user experience was also redesigned, providing more customized view, have access to old visits and book appointments based on past visits and have access to occupational health information.\n\n Accessability was also taken to consideration from the beginning and it needed to reach the AA requirements. \n\nDifferent metrix were set to ensure the goals were met.',
-        image: '/assets/target.jpg',
+        diagram: 'booking-steps',
         imageLayout: 'left',
-        imageWidth: 300,
-        imageHeight: 256,
       },
       {
         heading: 'Service backend update',
@@ -173,7 +168,7 @@ export const projects: ProjectData[] = [
       },
       {
         heading: 'Results',
-        body: "In the end, all the goal metrix mentioned in the beginning were met. The number of online booking kept rising (sorry for not having actual numbers) and different user groups started to use online booking instead of calling. "
+        body: "In the end, all the goal metrix mentioned in the beginning were met. The number of online booking kept rising and different user groups started to use online booking instead of calling. "
       },
     ],
   },

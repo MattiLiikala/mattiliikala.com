@@ -102,7 +102,7 @@ export default function About() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true, margin: '-80px' }}
           >
-            I am a designer and developer from Turku.
+            I am a designer and design engineer from Turku, working where product design, systems thinking and engineering meet.
           </motion.p>
           <p className={styles.spacer}> </p>
           <motion.p
@@ -112,7 +112,7 @@ export default function About() {
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
             viewport={{ once: true, margin: '-80px' }}
           >
-            My latest work has been on design systems. Currently I'm testing and researching different approaches to use AI in design work and how to build best design systems for AI. I have broad knowledge on all areas of design work (service design, UX, UI , accessibility). My focus on development work has always been on front-end development, but I'm currently broadening that expertice so I can work fullstack again when building with AI.
+            I have ten years of experience across the whole design lifecycle: service design, research, UX/UI, accessibility and front-end development. My latest work has been leading a design system. Right now I'm researching how to use AI in design and development, how to build design systems that work for AI agents, and how to help organizations work out where AI is actually needed. I'm also broadening my development from front end to full stack, so I can take responsibility for more of the product lifecycle.
           </motion.p>
           <p className={styles.spacer}> </p>
           <motion.p
@@ -122,7 +122,7 @@ export default function About() {
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
             viewport={{ once: true, margin: '-80px' }}
           >
-            I am constantly challenging myself in learning new things. I believe that wide knowledge in technology also makes me a better designer.
+            I am constantly learning new things. I believe wide knowledge in technology makes me a better designer, and understanding people makes me a better builder.
           </motion.p>
         </div>
       </div>

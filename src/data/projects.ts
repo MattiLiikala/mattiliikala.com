@@ -100,7 +100,7 @@ export const projects: ProjectData[] = [
       },
       {
         heading: 'AI in the workflow',
-        body: 'During the last year of development, I added more and more AI usage to project workflow. The benefits have been evident, particularly in maintaining design system; AI tools played a significant role in tasks such as creating and maintaining documentation, managing tokens, handling component variants, and synchronizing development between Figma and the coded product. Also documentation was reconsidered to be more readable for agents.'
+        body: 'During the last year of development, I added more and more AI usage to project workflow. The benefits have been evident, particularly in maintaining design system; AI tools played a significant role in tasks such as creating and maintaining documentation, managing tokens, handling component variants, and synchronizing development between Figma and the coded product.'
       },
       {
         heading: 'Learnings',

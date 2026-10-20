@@ -5,6 +5,7 @@ import { allProjects, type ProjectSection } from '../data/projects'
 import PhoneFrame from '../components/PhoneFrame'
 import MdsLibraryMap from '../components/MdsLibraryMap'
 import BookingSteps from '../components/BookingSteps'
+import KalaTokenFlow from '../components/KalaTokenFlow'
 import styles from './ProjectPage.module.css'
 
 const fadeIn = (x: number) => ({
@@ -119,6 +120,7 @@ function SectionContent({ section }: { section: ProjectSection }) {
     >
       {section.diagram === 'mds-library-map' && <MdsLibraryMap />}
       {section.diagram === 'booking-steps' && <BookingSteps />}
+      {section.diagram === 'kala-token-flow' && <KalaTokenFlow />}
     </motion.div>
   )
 

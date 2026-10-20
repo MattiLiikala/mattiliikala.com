@@ -13,7 +13,7 @@ export interface ProjectSection {
   imagePreserveAspect?: boolean
   phoneImages?: string[]  // mobile screenshots, each rendered wrapped in an iPhone frame
   phoneImageAlts?: string[]  // alt text for `phoneImages`, matched by index
-  diagram?: 'mds-library-map' | 'booking-steps'  // renders an animated diagram beside the body text, in place of an image
+  diagram?: 'mds-library-map' | 'booking-steps' | 'kala-token-flow'  // renders an animated diagram beside the body text, in place of an image
 }
 
 export interface ProjectUsageStat {
@@ -445,12 +445,90 @@ export const projects: ProjectData[] = [
 // Personal side projects, built on my own time outside of client/employer work.
 export const ownProjects: ProjectData[] = [
   {
+    slug: 'kalads',
+    title: 'Kala - Design System',
+    description:
+      'Kala Design System is a multiplatform design system, built with a strong three level tokenization and documented to be used by agents.',
+    role: ['Designer', 'Developer', 'Architect'],
+    roleDescription: 'I designed Kala Design System to learn good practices for multiplatform design system and how to document in agentic development era.',
+    year: '2026',
+    link: 'https://kalads.netlify.app',
+    linkLabel: 'kalads.netlify.app',
+    githubLink: 'https://github.com/MattiLiikala/KalaDS',
+    cardImage: '/assets/project-kalads-card.png',
+    imageStyle: 'cover',
+    sections: [
+      {
+        heading: 'Background',
+        body: prose`
+          In many cases, design systems are required for multiple platforms, and in many cases this is handled with multiple component 
+          libraries. I wanted to create a system that leans on a strong foundation, so managing multiple libraries would be little easier.
+          From building Mehiläinen Design System I also learned how much a weak token foundation costs later, when the tokens have to be 
+          refactored.
+
+          At the same time, more and more of the code is written with coding agents. An agent only follows a design system if it can find
+          and read the rules, so I wanted to make sure that everyone using the system would get the same set of rules easily.
+        `,
+      },
+      {
+        heading: 'Tokens first',
+        body: prose`
+          The tokens come in three layers. Core tokens (primitives) hold the raw values like palettes and sizes. Semantic tokens tell what a value is for
+          (bg.subtle, interactive.accent). Component tokens (button.primary.bg-hover) point only at semantic tokens. The dark theme only
+          swaps the semantic colours, and the build checks that every component token points at a semantic token with the matching meaning.
+
+          Because the component level of the tokenization is strong, the component libraries are thin layers on top of the same tokens.
+          Currently KalaDS implements web components, React and React Native. The web components are the reference: their attributes
+          generate the shared component API, and tests check that all three libraries have the same props, variants and defaults.
+        `,
+        diagram: 'kala-token-flow',
+        imageLayout: 'left',
+      },
+      {
+        heading: 'Written for agents',
+        body: prose`
+          The documentation is written to be easily read by agents as well as people. Every component page in Storybook has the code for
+          all three libraries, and the guidelines include their own page for AI agents.
+
+          Every component package also distributes its own agent skill with the components, tokens and usage rules. In an app, one command
+          links the skill for the platform in use, so the agent follows the strict guidelines of the design system instead of guessing.
+        `,
+      },
+      {
+        heading: 'In action',
+        body: prose`
+          I wanted the library to be easy to use, so for testing purposes, I made very simple prompt that only points the agent to storybook 
+          documentation page, and check if it actually installs the skills correctly and follows them.
+
+          This simple test was succesful, and the agent noticed the skills to be installed and followed. The components and tokens were used 
+          correctly in this particular situation.
+        `,
+        image: '/assets/project-kalads-agent-example.jpg',
+        imageAlt: "Screenshot of commandline where agent is given a task to create a landing page using only kalads components.",
+        imageLayout: 'left',
+        imageWidth: 500,
+        imageHeight: 320,
+      },
+      {
+        heading: 'Learnings',
+        body: prose`
+          As this project is still in it's early stage, there are still things to be optimized. However, this simple POC already proved to me 
+          that this kind of system works, and I'm happy with the results. I'm still working on how to make better "single source of truth" as 
+          there are now multiple places where documentation is handled.
+
+          The multiplatform design system part was something I already knew that would work, but this was a good study to test different token 
+          structures.
+        `,
+      },
+    ],
+  },
+  {
     slug: 'nippu',
     title: 'Nippu',
     description:
       'Nippu is a mobile-first PWA that lets households manage shared lists and recipes together in real time.',
     role: ['Designer', 'Developer'],
-    roleDescription: 'A solo side project — I designed and built the whole app end to end, from concept to a deployed PWA.',
+    roleDescription: 'I designed and built the whole app end to end, from concept to a deployed PWA.',
     year: '2026',
     link: 'https://nippu.app',
     linkLabel: 'nippu.app',

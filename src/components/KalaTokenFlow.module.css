@@ -1,0 +1,65 @@
+.wrap {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.svgDesktop {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.svgMobile {
+  display: none;
+}
+
+.nodeLabel {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-size: 11.5px;
+  fill: #121212;
+}
+
+.tierLabel {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  fill: rgba(0, 0, 0, 0.6);
+}
+
+.buttonLabel {
+  font-family: 'Parkinsans', sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.caption {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 11px;
+  fill: rgba(0, 0, 0, 0.55);
+}
+
+/* ── Mobile: swap to the narrower layout with shorter node labels, so the
+   text stays close to its natural size on a narrow screen. ─────────────── */
+@media (max-width: 799px) {
+  .wrap {
+    max-width: 100%;
+  }
+
+  .svgDesktop {
+    display: none;
+  }
+
+  .svgMobile {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}

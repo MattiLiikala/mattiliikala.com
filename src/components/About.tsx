@@ -112,7 +112,7 @@ export default function About() {
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
             viewport={{ once: true, margin: '-80px' }}
           >
-            I have ten years of experience across the whole design lifecycle: service design, research, UX/UI, accessibility and front-end development. My latest work has been leading a design system. Right now I'm researching how to use AI in design and development, how to build design systems that work for AI agents, and how to help organizations work out where AI is actually needed. I'm also broadening my development from front end to full stack, so I can take responsibility for more of the product lifecycle.
+            I have ten years of experience across the whole design lifecycle: service design, research, UX/UI, accessibility and front-end development. My latest work has been leading a design system. Right now I'm researching how to use AI in design and development, how to build design systems that work for AI agents, and how different AI features should be implemented for different systems. I'm also broadening my development from front end to full stack, so I can take responsibility for more of the product lifecycle.
           </motion.p>
           <p className={styles.spacer}> </p>
           <motion.p

@@ -474,7 +474,7 @@ export const ownProjects: ProjectData[] = [
         heading: 'Tokens first',
         body: prose`
           The tokens come in three layers. Core tokens (primitives) hold the raw values like palettes and sizes. Semantic tokens tell what a value is for
-          (bg.subtle, interactive.accent). Component tokens (button.primary.bg-hover) point only at semantic tokens. The dark theme only
+          (bg.subtle, bg.interactive). Component tokens (button.primary.bg-hover) point only at semantic tokens. The dark theme only
           swaps the semantic colours, and the build checks that every component token points at a semantic token with the matching meaning.
 
           Because the component level of the tokenization is strong, the component libraries are thin layers on top of the same tokens.

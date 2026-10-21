@@ -13,8 +13,8 @@ interface Column extends Record<TierKey, string> {
 }
 
 const COLUMNS: Column[] = [
-  { core: 'primary.500', semantic: 'interactive.accent', component: 'primary.bg', swatch: '#c50277' },
-  { core: 'neutral.100', semantic: 'interactive.on-accent', component: 'primary.text', swatch: '#fef9f5' },
+  { core: 'primary.500', semantic: 'bg.interactive', component: 'primary.bg', swatch: '#c50277' },
+  { core: 'neutral.100', semantic: 'text.on-interactive', component: 'primary.text', swatch: '#fef9f5' },
   { core: 'size.400', semantic: 'padding.lg', component: 'primary.padding-x' },
 ]
 const TIERS: { key: TierKey; label: string }[] = [
@@ -27,8 +27,8 @@ const TIERS: { key: TierKey; label: string }[] = [
 // node labels drop their group prefix (like core drops `color.`), and the
 // prefix every component token shares moves up into the tier label.
 const COLUMNS_COMPACT: Column[] = [
-  { core: 'primary.500', semantic: 'accent', component: 'bg', swatch: '#c50277' },
-  { core: 'neutral.100', semantic: 'on-accent', component: 'text', swatch: '#fef9f5' },
+  { core: 'primary.500', semantic: 'interactive', component: 'bg', swatch: '#c50277' },
+  { core: 'neutral.100', semantic: 'on-interactive', component: 'text', swatch: '#fef9f5' },
   { core: 'size.400', semantic: 'padding.lg', component: 'padding-x' },
 ]
 const TIERS_COMPACT: { key: TierKey; label: string }[] = [
@@ -107,7 +107,7 @@ function TokenFlow({ layout, className }: { layout: Layout; className: string })
       viewBox={`0 0 ${viewW} ${VIEW_H}`}
       className={className}
       role="img"
-      aria-label="Diagram of KalaDS token layers for the primary Button. Core tokens primary.500, neutral.100 and size.400 map to the semantic tokens interactive.accent, interactive.on-accent and padding.lg, which map to the component tokens button.primary.bg, button.primary.text and button.primary.padding-x. Only the component tokens connect to the Button, which is built from them."
+      aria-label="Diagram of KalaDS token layers for the primary Button. Core tokens primary.500, neutral.100 and size.400 map to the semantic tokens bg.interactive, text.on-interactive and padding.lg, which map to the component tokens button.primary.bg, button.primary.text and button.primary.padding-x. Only the component tokens connect to the Button, which is built from them."
     >
       {/* Lines core → semantic → component, one per column */}
       {[0, 1].map((r) =>
